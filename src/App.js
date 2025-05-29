@@ -1,25 +1,20 @@
-import logo from './logo.svg';
+import { Box } from '@mui/system'
+import React from 'react'
 import './App.css';
+import Board from './components/board/Board';
+import Navbar from './components/navbar/Navbar'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Box className="app-background">
+      <Box className="background-image"></Box>
+      <Box className="overlay"></Box>
+      <Box className="app-content">
+        <Board />
+      </Box>
+
+    </Box>
+  )
 }
 
-export default App;
+export default App
