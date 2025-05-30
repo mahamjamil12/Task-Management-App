@@ -9,6 +9,9 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { Button } from '@mui/material';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { useThemeContext } from '../../context/ThemeContext';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -52,11 +55,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchAppBar() {
+export default function Navbar() {
+
+  const {mode, themeToggle} = useThemeContext();
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{color:'white'}}>
-        <Toolbar sx={{backgroundColor:'#DDA0DD'}}>
+      <AppBar position="static"
+        elevation={0}
+        sx={{
+          backgroundColor: 'transparent',
+          boxShadow: 'none',
+
+        }}>
+        <Toolbar sx={{ backgroundColor: 'grey', borderRadius: 10, mb: 5 }}>
           {/* <IconButton
             size="large"
             edge="start"
@@ -83,7 +94,12 @@ export default function SearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          <Button variant='outlined' >Create</Button>
+         
+          {/* <Button variant='contained' sx={{backgroundColor:'lightslategrey'}} >Create</Button> */}
+          <IconButton onClick={themeToggle} variant="outlined" sx={{ mr: 1 }}>
+          {/* <Brightness7Icon/> */}
+            {mode === 'dark' ? <Brightness7Icon/> : <Brightness4Icon/>}
+          </IconButton>
         </Toolbar>
       </AppBar>
     </Box>

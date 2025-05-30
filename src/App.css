@@ -34,3 +34,12 @@
   align-items: center;
   height: 100vh;
 }
+/* App.css */
+body[data-theme='dark'] .background-image {
+  opacity: 0.1;
+}
+
+body[data-theme='dark'] .overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
